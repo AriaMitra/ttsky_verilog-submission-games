@@ -10,5 +10,5 @@ module LFSR_3(
     DFF bit2(.D(a1), .clk(clk), .reset(reset), .Q(a2));
     DFF bit3(.D(a2), .clk(clk), .reset(reset), .Q(a3));
 
-    assign rand = {a1, a2, a3};
+    assign randd = {a1, a2, a3};
 endmodule
