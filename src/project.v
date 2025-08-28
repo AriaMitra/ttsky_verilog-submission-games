@@ -16,12 +16,58 @@ module tt_um_example (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+  wire reset = ~rst_n;
 
-  // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+  // 0 is tic_tac_toe, 1 is rock_paper
+  wire gametype = ui_in[0];
+
+
+  wire [1:0] rps_win;
+  rock_paper rps_game (
+    .u(ui_in[2:1]),   
+    .clk(clk),
+    .reset(reset),
+    .win(rps_win)
+  );
+
+  wire [1:0] ttt_board [0:8];
+  wire [1:0] ttt_player;
+  wire [1:0] ttt_winner;
+  wire       ttt_draw;
+
+  tic_tac_toe ttt_game (
+    .clk(clk),
+    .reset(reset),
+    .move_valid(ui_in[7]), 
+    .move_pos(ui_in[6:3]), 
+    .board(ttt_board),
+    .current_player(ttt_player),
+    .winner(ttt_winner),
+    .draw(ttt_draw)
+  );
+
+  assign uo_out =
+      (gametype == 1'b0) ?
+      {
+        1'b0,              // unused
+        ttt_draw,          // bit 6
+        ttt_winner,        // bits 5-4
+        ttt_player,        // bits 3-2
+        1'b0,   
+        1'b0
+      } :
+      {
+        5'b00000,         // unused
+        rps_win           // bits 1-0 → result
+      };
+
+  // Set unused outputs
+  assign uio_out = 8'b0;
+  assign uio_oe  = 8'b0;
+
+  // Avoid unused warnings
+  wire _unused = &{ena, uio_in};
 
 endmodule
+
+
