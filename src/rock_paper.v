@@ -6,27 +6,27 @@ module rock_paper(input [1:0] u, input clk, input reset, output reg [1:0] win);
   LFSR_3 v1 (.clk(clk), .reset(reset), .rand(ran));
 	always @ (posedge clk) begin
     rand <= ran[1:0];
-		if (u == 2’b00) begin
+		if (u == 2'b00) begin
 			if (rand == 0)
-				win <= 2’b01;
+				win <= 2'b01;
 			else if (rand == 3)
-				win <= 2’b00;
+				win <= 2'b00;
 			else 
-				win <=2’b11;
-		end else if(u == 2’b01) begin
+				win <=2'b11;
+		end else if(u == 2'b01) begin
 			if(rand == 1)
-				win <=2’b01;
+				win <=2'b01;
 			else if(rand == 3)
-				win <=2’b11;
+				win <=2'b11;
 			else 
-				win<=2’b00;
+				win<=2'b00;
     end else begin
       if(rand ==3)
-        win<=2’b01;
+        win<=2'b01;
       else if (rand == 0)
-        win<=2’b11;
+        win<=2'b11;
       else
-        win<=2’b00;
+        win<=2'b00;
 		end
 	end
 endmodule
