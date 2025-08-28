@@ -30,7 +30,7 @@ module tt_um_AriaMitraGames (
     .win(rps_win)
   );
 
-  wire [1:0] ttt_board [0:8];
+    wire [1:0] b0,b1,b2,b3,b4,b5,b6,b7,b8;
   wire [1:0] ttt_player;
   wire [1:0] ttt_winner;
   wire       ttt_draw;
@@ -40,7 +40,15 @@ module tt_um_AriaMitraGames (
     .reset(reset),
     .move_valid(ui_in[7]), 
     .move_pos(ui_in[6:3]), 
-    .board(ttt_board),
+      .board_0(b0),
+      .board_1(b1),
+      .board_2(b2),
+      .board_3(b3),
+      .board_4(b4),
+      .board_5(b5),
+      .board_6(b6),
+      .board_7(b7),
+      .board_8(b8),
     .current_player(ttt_player),
     .winner(ttt_winner),
     .draw(ttt_draw)
