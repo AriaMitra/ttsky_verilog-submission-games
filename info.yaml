@@ -27,23 +27,23 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "Game Type (0 is tic tactoe, 1 is rock paper scissors)"
+  ui[1]: "User Input for Rock Paper Scissors"
+  ui[2]: "User Input for Rock Paper Scissors"
+  ui[3]: "Move Position (index of spot)"
+  ui[4]: "Move Position (index of spot)"
+  ui[5]: "Move Position (index of spot)"
+  ui[6]: "Move Position (index of spot)"
+  ui[7]: "Move Valid"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
+  uo[0]: "Rock Paper Scissors Winner"
+  uo[1]: "Rock Paper Scissors Winner"
+  uo[2]: "Current Player (TTT)"
+  uo[3]: "Current Player (TTT)"
+  uo[4]: "Tic Tac Toe Winner"
+  uo[5]: "Tic Tac Toe Winner"
+  uo[6]: "Tic Tac Toe Draw"
   uo[7]: ""
 
   # Bidirectional pins
