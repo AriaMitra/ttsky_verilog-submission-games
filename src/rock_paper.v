@@ -1,4 +1,9 @@
-module rock_paper(input [1:0] u, input clk, input reset, output reg [1:0] win);
+module rock_paper(
+	input [1:0] u, 
+	input clk, 
+	input reset, 
+	output reg [1:0] win
+);
 	//00 is rock, 01 is paper, 11 is scissors
 	//win → 00 is u win, 01 is draw, 11 is computer wins
   reg [1:0] rand;
