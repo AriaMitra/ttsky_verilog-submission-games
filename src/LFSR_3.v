@@ -1,7 +1,7 @@
 module LFSR_3(
     input clk,
     input reset,
-    output [2:0] rand
+    output [2:0] randd
 );
     wire a1, a2, a3, a4;
     assign a4 = a1 ^ a3;
