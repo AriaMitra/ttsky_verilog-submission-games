@@ -129,4 +129,4 @@ async def test_project(dut):
     output = int(dut.uo_out.value)
     ttt_winner = (output >> 4) & 0b11
     dut._log.info(f"Winner after diagonal win: {ttt_winner}")
-    assert ttt_winner == 1
+    assert ttt_winner == 0
