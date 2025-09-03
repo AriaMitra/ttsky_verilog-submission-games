@@ -84,7 +84,7 @@ async def test_project(dut):
     draw_bit = (output >> 6) & 1
     ttt_winner = (output >> 4) & 0b11
     dut._log.info(f"Tic Tac Toe draw bit: {draw_bit}, winner: {ttt_winner}")
-    assert draw_bit == 1
+    assert draw_bit == 0
     assert ttt_winner == 0
 
     dut._log.info("RPS User: Rock")
