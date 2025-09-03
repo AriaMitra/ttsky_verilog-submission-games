@@ -18,6 +18,8 @@ jobs:
         with:
           pdk: sky130
           tools-ref: ttsky25a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # ✅ Pass token here
 
   precheck:
     needs: gds
@@ -28,6 +30,8 @@ jobs:
         with:
           pdk: sky130
           tools-ref: ttsky25a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # ✅ Add here too
 
   gl_test:
     needs: gds
@@ -42,14 +46,18 @@ jobs:
         uses: TinyTapeout/tt-gds-action/gl_test@ttsky25a
         with:
           pdk: sky130
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # ✅ And here
 
   viewer:
     needs: gds
     runs-on: ubuntu-24.04
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
     steps:
       - uses: TinyTapeout/tt-gds-action/viewer@ttsky25a
         with:
           pdk: sky130
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # ✅ And here if needed
