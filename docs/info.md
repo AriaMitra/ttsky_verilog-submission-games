@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-This is basically a chip where people can either play tic tac toe or rock paper scissors. Tic tac toe is a two person game and rock paper scissors is where one person plays against the machine. This works by using a 3-bit LFSR. The results of the game are outputted (please look at the pinout for more understanding of specifics).
+This is basically a chip where people can either play tic tac toe or rock paper scissors. Tic tac toe is a two person game and rock paper scissors is where one person plays against the machine. This works by using a 3-bit LFSR. The results of the game are outputted (please look at the pinout for more understanding of specifics) .
 
 ## How to test
 
